@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import BackgroundSection from "@/components/BackgroundSection";
@@ -8,6 +9,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => (
   <div className="bg-background min-h-screen">
+    <Navbar />
     <HeroSection />
     <AboutSection />
     <BackgroundSection />

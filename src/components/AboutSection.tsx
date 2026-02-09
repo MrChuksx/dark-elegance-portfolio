@@ -1,5 +1,5 @@
 import FadeIn from "./FadeIn";
-import OvalImage from "./OvalImage";
+import ParallaxImage from "./ParallaxImage";
 import aboutWorkspace from "@/assets/about-workspace.jpg";
 
 const AboutSection = () => (
@@ -22,7 +22,7 @@ const AboutSection = () => (
         </FadeIn>
       </div>
       <FadeIn delay={0.2} className="flex justify-center lg:justify-end">
-        <OvalImage
+        <ParallaxImage
           src={aboutWorkspace}
           alt="Tech workspace"
           className="w-80 h-[28rem] md:w-96 md:h-[32rem]"

@@ -1,27 +1,75 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import FadeIn from "./FadeIn";
+
+import forgrImg from "@/assets/projects/forgr.png";
+import cryptiaImg from "@/assets/projects/cryptia.png";
+import xmatorImg from "@/assets/projects/xmator.png";
+import autoresolverImg from "@/assets/projects/autoresolver.png";
+import filenexImg from "@/assets/projects/filenex.png";
+import docsImg from "@/assets/projects/docs.png";
 
 interface Project {
   title: string;
   description: string;
   image: string;
+  github: string;
+  language: string;
+  stars: number;
 }
 
 const mainProjects: Project[] = [
-  { title: "DevFlow", description: "A developer productivity dashboard with real-time analytics and task management", image: "" },
-  { title: "CloudSync API", description: "RESTful API for cloud file synchronization with multi-platform support", image: "" },
-  { title: "PortfolioGen", description: "Automated portfolio generator built with modern web technologies", image: "" },
-  { title: "CodeReview Bot", description: "AI-powered code review assistant integrating with GitHub workflows", image: "" },
-  { title: "DataVault", description: "Secure data storage solution with end-to-end encryption", image: "" },
-  { title: "TaskRunner CLI", description: "Command-line task automation tool for development workflows", image: "" },
+  {
+    title: "Forgr",
+    description: "An open-source PHP library that lets you turn any PHP function into a RESTful API endpoint with one route.",
+    image: forgrImg,
+    github: "https://github.com/chukwunonsoprosper/forgr",
+    language: "PHP",
+    stars: 31,
+  },
+  {
+    title: "CryptiaJS",
+    description: "A lightweight and secure JavaScript library for encrypting and decrypting text using a substitution cipher.",
+    image: cryptiaImg,
+    github: "https://github.com/chukwunonsoprosper/cryptia",
+    language: "JavaScript",
+    stars: 53,
+  },
+  {
+    title: "Xmator",
+    description: "An advanced automation script that intelligently cleans up your following list on X, preserving tech-related accounts.",
+    image: xmatorImg,
+    github: "https://github.com/chukwunonsoprosper/Xmator",
+    language: "JavaScript",
+    stars: 30,
+  },
 ];
 
 const moreProjects: Project[] = [
-  { title: "ChatConnect", description: "Real-time messaging platform with WebSocket architecture", image: "" },
-  { title: "MetricsDash", description: "Business analytics dashboard with interactive data visualizations", image: "" },
-  { title: "AuthGuard", description: "Authentication microservice with OAuth2 and JWT implementation", image: "" },
-  { title: "DeployKit", description: "CI/CD pipeline toolkit for automated deployment workflows", image: "" },
+  {
+    title: "AutoResolver",
+    description: "A tiny dependency injector that figures out what your functions need and gives them just that — no manual wiring.",
+    image: autoresolverImg,
+    github: "https://github.com/chukwunonsoprosper/autoresolver",
+    language: "JavaScript",
+    stars: 0,
+  },
+  {
+    title: "FileNex",
+    description: "Monitor important folders on the desktop directory and automatically push to your FTP server.",
+    image: filenexImg,
+    github: "https://github.com/chukwunonsoprosper/filenex",
+    language: "JavaScript",
+    stars: 0,
+  },
+  {
+    title: "Docs",
+    description: "Personal documentation and knowledge base built with MDX for clean, structured technical writing.",
+    image: docsImg,
+    github: "https://github.com/chukwunonsoprosper/docs",
+    language: "MDX",
+    stars: 0,
+  },
 ];
 
 const cardVariants = {
@@ -48,33 +96,39 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       whileHover={{ scale: 1.04 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      <motion.div
-        className="w-full h-full bg-secondary"
+      <motion.img
+        src={project.image}
+        alt={`${project.title} preview`}
+        className="w-full h-full object-cover"
         whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       />
     </motion.div>
-    <h3 className="font-serif text-xl md:text-2xl text-foreground mb-2 group-hover:translate-x-1 transition-transform duration-300">
-      {project.title}
-    </h3>
-    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+    <div className="flex items-center gap-3 mb-2">
+      <h3 className="font-serif text-xl md:text-2xl text-foreground group-hover:translate-x-1 transition-transform duration-300">
+        {project.title}
+      </h3>
+      {project.stars > 0 && (
+        <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+          <Star className="w-3 h-3 fill-current" /> {project.stars}
+        </span>
+      )}
+    </div>
+    <p className="text-muted-foreground text-sm mb-2 leading-relaxed">
       {project.description}
     </p>
+    <p className="text-xs text-muted-foreground/70 mb-4">{project.language}</p>
     <div className="flex gap-4">
-      <motion.button
+      <motion.a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-foreground hover:opacity-70 transition-opacity"
         whileHover={{ x: 4 }}
         transition={{ duration: 0.2 }}
       >
-        View Project <ExternalLink className="w-3 h-3" />
-      </motion.button>
-      <motion.button
-        className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors"
-        whileHover={{ x: 4 }}
-        transition={{ duration: 0.2 }}
-      >
         GitHub <Github className="w-3 h-3" />
-      </motion.button>
+      </motion.a>
     </div>
   </motion.div>
 );

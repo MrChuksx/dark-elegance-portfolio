@@ -28,7 +28,7 @@ const listItemVariants = {
 };
 
 const BackgroundSection = () => (
-  <section className="px-6 md:px-16 lg:px-24 py-28">
+  <section id="background" className="px-6 md:px-16 lg:px-24 py-28">
     <div className="max-w-7xl mx-auto">
       <FadeIn>
         <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-16">

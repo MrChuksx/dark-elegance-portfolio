@@ -20,19 +20,19 @@ const HeroSection = () => {
         <motion.div className="space-y-8" style={{ y: textY, opacity }}>
           <FadeIn>
             <span className="pill-badge">
-              Uchechukwu Godspower / Software Developer &amp; Prompt Engineer
+              MrChuksx / Developer &amp; Creator
             </span>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] text-foreground">
-              Welcome to My
+              Crafting Digital
               <br />
-              Tech Portfolio
+              Experiences
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg text-muted-foreground max-w-md font-light tracking-wide">
-              Building vision to reality
+              Turning ideas into polished, functional products — one project at a time.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
@@ -50,7 +50,7 @@ const HeroSection = () => {
         <FadeIn delay={0.2} className="flex justify-center lg:justify-end">
           <ParallaxImage
             src={heroPortrait}
-            alt="Uchechukwu Godspower portrait"
+            alt="MrChuksx portrait"
             className="w-80 h-[28rem] md:w-96 md:h-[32rem]"
             speed={0.1}
           />

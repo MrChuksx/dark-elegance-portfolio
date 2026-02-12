@@ -8,16 +8,16 @@ const AboutSection = () => (
       <div className="space-y-8">
         <FadeIn>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-foreground">
-            Who is Godspower?
+            Who is MrChuksx?
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-lg">
-            I am a final-year Computer Science student, 21 years old, studying in
-            Benin, Cotonou. I have over 3 years of hands-on experience in tech,
-            with more than 90% project success across personal and academic
-            projects. I focus on building scalable solutions and turning ideas into
-            functional digital products.
+            I'm a developer and creator who loves building things that work
+            beautifully. From career tools and university platforms to creative
+            portfolios and AI-powered workflows — I ship real products with
+            modern tech stacks. Currently focused on TypeScript, React, and
+            pushing the boundaries of what's possible with code.
           </p>
         </FadeIn>
       </div>

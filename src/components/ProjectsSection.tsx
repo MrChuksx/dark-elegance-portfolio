@@ -2,11 +2,11 @@ import { ExternalLink, Github, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import FadeIn from "./FadeIn";
 
-import forgrImg from "@/assets/projects/forgr.png";
-import cryptiaImg from "@/assets/projects/cryptia.png";
-import xmatorImg from "@/assets/projects/xmator.png";
-import autoresolverImg from "@/assets/projects/autoresolver.png";
-import filenexImg from "@/assets/projects/filenex.png";
+import guidoraImg from "@/assets/projects/guidora.png";
+import uniResultsImg from "@/assets/projects/uni-results.png";
+import visionCraftImg from "@/assets/projects/vision-craft.png";
+import darkPortfolioImg from "@/assets/projects/dark-portfolio.png";
+import orgImg from "@/assets/projects/org.png";
 import docsImg from "@/assets/projects/docs.png";
 
 interface Project {
@@ -16,57 +16,62 @@ interface Project {
   github: string;
   language: string;
   stars: number;
+  liveUrl?: string;
 }
 
 const mainProjects: Project[] = [
   {
-    title: "Forgr",
-    description: "An open-source PHP library that lets you turn any PHP function into a RESTful API endpoint with one route.",
-    image: forgrImg,
-    github: "https://github.com/chukwunonsoprosper/forgr",
-    language: "PHP",
-    stars: 31,
+    title: "Guidora",
+    description: "A career compass app that helps users discover and navigate career paths with guided recommendations.",
+    image: guidoraImg,
+    github: "https://github.com/MrChuksx/guidora-your-career-compass",
+    language: "TypeScript",
+    stars: 0,
   },
   {
-    title: "CryptiaJS",
-    description: "A lightweight and secure JavaScript library for encrypting and decrypting text using a substitution cipher.",
-    image: cryptiaImg,
-    github: "https://github.com/chukwunonsoprosper/cryptia",
-    language: "JavaScript",
-    stars: 53,
+    title: "Uni Results Hub",
+    description: "A university results management platform for viewing and tracking academic performance.",
+    image: uniResultsImg,
+    github: "https://github.com/MrChuksx/uni-results-hub-09811d83",
+    language: "TypeScript",
+    stars: 0,
+    liveUrl: "https://uni-results-hub-09811d83.vercel.app",
   },
   {
-    title: "Xmator",
-    description: "An advanced automation script that intelligently cleans up your following list on X, preserving tech-related accounts.",
-    image: xmatorImg,
-    github: "https://github.com/chukwunonsoprosper/Xmator",
-    language: "JavaScript",
-    stars: 30,
+    title: "Vision Craft",
+    description: "A creative portfolio and vision board application for showcasing work and ideas.",
+    image: visionCraftImg,
+    github: "https://github.com/MrChuksx/chuks-vision-craft",
+    language: "TypeScript",
+    stars: 0,
+    liveUrl: "https://chuks-craft.vercel.app",
   },
 ];
 
 const moreProjects: Project[] = [
   {
-    title: "AutoResolver",
-    description: "A tiny dependency injector that figures out what your functions need and gives them just that — no manual wiring.",
-    image: autoresolverImg,
-    github: "https://github.com/chukwunonsoprosper/autoresolver",
-    language: "JavaScript",
+    title: "Dark Elegance Portfolio",
+    description: "A sleek, dark-themed personal portfolio website with modern design and smooth animations.",
+    image: darkPortfolioImg,
+    github: "https://github.com/MrChuksx/dark-elegance-portfolio",
+    language: "TypeScript",
     stars: 0,
+    liveUrl: "https://mrchuksvision.vercel.app",
   },
   {
-    title: "FileNex",
-    description: "Monitor important folders on the desktop directory and automatically push to your FTP server.",
-    image: filenexImg,
-    github: "https://github.com/chukwunonsoprosper/filenex",
-    language: "JavaScript",
+    title: "MrChuksx's Org",
+    description: "An organizational project built with Google Gemini AI Studio template for intelligent workflows.",
+    image: orgImg,
+    github: "https://github.com/MrChuksx/MrChuksx-s-Org",
+    language: "TypeScript",
     stars: 0,
+    liveUrl: "https://mr-chuksx-s-org.vercel.app",
   },
   {
     title: "Docs",
-    description: "Personal documentation and knowledge base built with MDX for clean, structured technical writing.",
+    description: "Personal documentation and knowledge base built with Mintlify for clean, structured technical writing.",
     image: docsImg,
-    github: "https://github.com/chukwunonsoprosper/docs",
+    github: "https://github.com/MrChuksx/docs",
     language: "MDX",
     stars: 0,
   },
@@ -129,6 +134,18 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       >
         GitHub <Github className="w-3 h-3" />
       </motion.a>
+      {project.liveUrl && (
+        <motion.a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-foreground hover:opacity-70 transition-opacity"
+          whileHover={{ x: 4 }}
+          transition={{ duration: 0.2 }}
+        >
+          Live <ExternalLink className="w-3 h-3" />
+        </motion.a>
+      )}
     </div>
   </motion.div>
 );

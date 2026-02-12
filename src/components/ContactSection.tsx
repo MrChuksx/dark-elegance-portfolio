@@ -1,4 +1,4 @@
-import { ArrowRight, Send } from "lucide-react";
+import { ArrowRight, Send, MessageCircle } from "lucide-react";
 import { useState, FormEvent } from "react";
 import FadeIn from "./FadeIn";
 
@@ -41,7 +41,8 @@ const ContactSection = () => {
 
     const subject = encodeURIComponent(`Portfolio inquiry from ${safeName}`);
     const body = encodeURIComponent(`Name: ${safeName}\nEmail: ${safeEmail}\n\n${safeMessage}`);
-    window.location.href = `mailto:Uchechukwugodspower6@gmail.com?subject=${subject}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent("Uchechukwugodspower6@gmail.com")}&su=${subject}&body=${body}`;
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
   };
@@ -64,6 +65,18 @@ const ContactSection = () => {
                   className="text-foreground hover:opacity-70 transition-opacity text-lg"
                 >
                   Uchechukwugodspower6@gmail.com
+                </a>
+              </div>
+              <div>
+                <p className="text-xs tracking-widest uppercase text-muted-foreground mb-2">WhatsApp</p>
+                <a
+                  href="https://wa.me/2348134552752"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-foreground hover:opacity-70 transition-opacity text-lg"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  +234 813 455 2752
                 </a>
               </div>
               <div>
